@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE resources PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Resource Definitions//EN"
+        "http://glassfish.org/dtds/glassfish-resources_1_5.dtd">
+<resources>
+    <jdbc-connection-pool name="SecureAppPool"
+                          res-type="javax.sql.ConnectionPoolDataSource"
+                          datasource-classname="org.postgresql.ds.PGConnectionPoolDataSource"
+                          max-pool-size="4"
+                          steady-pool-size="2">
+        <property name="url" value="jdbc:postgresql://localhost:5432/sample_app"/>
+        <property name="driverClass" value="org.postgresql.jdbc.JDBCDriver"/>
+    </jdbc-connection-pool>
+
+    <jdbc-resource pool-name="SecureAppPool"
+                   jndi-name="jdbc/secureAppDS" />
+</resources>

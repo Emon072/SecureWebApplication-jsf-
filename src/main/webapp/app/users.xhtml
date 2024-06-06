@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+
+    <h:head>
+        <title>Users Information</title>
+    </h:head>
+
+    <h:body>
+        <h3>All users</h3>
+        <div class="card">
+            <p:commandButton id="btn" type="button" icon="pi pi-plus" value="Add User" onclick="PF('dlg').show()"/>
+        </div>
+
+        <p:dialog id="gmapDialog" widgetVar="dlg" width="625" height="400" modal="true">
+            <ui:include src="addUser.xhtml"/>
+        </p:dialog>
+
+        <p:dataTable value="#{usersController.allUsers}" var="user">
+            <p:column headerText="">
+                <h:outputText value="#{user.id}"/>
+            </p:column>
+            <p:column headerText="">
+                <h:outputText value="#{user.name}"/>
+            </p:column>
+            <p:column headerText="">
+                <h:outputText value="#{user.username}"/>
+            </p:column>
+            <p:column headerText="">
+                <h:outputText value="#{user.group}"/>
+            </p:column>
+
+        </p:dataTable>
+
+    </h:body>
+
+</f:view>
+</html>
